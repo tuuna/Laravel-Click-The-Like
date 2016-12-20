@@ -8,7 +8,7 @@ class IndexController extends Controller
 {
     public function index() 
     {
-    	$allClick = Redis:get(" click : like ");
+    	$allClick = Redis::get(" click : like ");
 
         return view('index',['click' => $allClick]);
     }
@@ -19,9 +19,19 @@ class IndexController extends Controller
 
     	if($data['count']) {
     		$key = 'click : like';
-    		$allKey = Redis:get($key);
-    		Redis:set($key,$allKey++);
+    		$allKey = Redis::get($key);
+    		Redis:set($key,$allKey + 1);
     	}
+    }
+
+    public function isLike()
+    {
+        $click = Redis::get(" click : like ");
+        if($click) {
+            return json_encode(['status' => 0,'msg' => '已经点过赞']);
+        } else {
+            return json_encode(['status' => 1,'msg' => '点赞成功']);
+        }
     }
 }
 

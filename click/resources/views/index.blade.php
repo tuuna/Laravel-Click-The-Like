@@ -94,17 +94,25 @@
     $(function($) {
         var count = 0;
         var event = $(".like").click(function () {
-            count++;
-            $.ajax({
-                data : count,
-                url : <?php echo route('getAllData'); ?>,
-                type : "post" 
-            }).success(function (data) {
-                console.log(data.msg); 
-            });
-        })
-    })
 
+            $.post({
+                url : "<?php echo URL::action('IndexController@isLike')?>"
+            }).success(function (data1) {
+                if(data1.status) {
+                    count++;
+                    $.ajax({
+                        data : count,
+                        url : "<?php echo URL::action('IndexController@getAllData'); ?>",
+                        type : "post"
+                    }).success(function (data2) {
+                        console.log(data2.msg);
+                    });
+                } else {
+                    alert("Yummy" + data1.msg);
+                }
+            });
+        });
+    })
 
 
 </script>
