@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
+//use Predis;
 
 class IndexController extends Controller
 {
@@ -20,7 +22,7 @@ class IndexController extends Controller
     	if($data['count']) {
     		$key = 'click : like';
     		$allKey = Redis::get($key);
-    		Redis:set($key,$allKey + 1);
+    		Redis::set($key,$allKey + 1);
     	}
     }
 

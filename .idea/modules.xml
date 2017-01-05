@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Laravel-Click-The-Like.iml" filepath="$PROJECT_DIR$/.idea/Laravel-Click-The-Like.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ZhouGong_Solution/.idea/ZhouGong_Solution.iml" filepath="$PROJECT_DIR$/../ZhouGong_Solution/.idea/ZhouGong_Solution.iml" />
     </modules>
   </component>
 </project>
