@@ -79,21 +79,20 @@
 </footer>
 
 <!--[if lt IE 9]>
-<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<script src="js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="assets/js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <!--<![endif]-->
-<script src="assets/js/amazeui.min.js"></script>
+<script src="js/amazeui.min.js"></script>
 <script src="https://use.fontawesome.com/9a7fd8c5c8.js"></script>
 <script type="text/javascript">
 
     $(function($) {
         var count = 0;
-        var event = $(".like").click(function () {
+        var event = $("#like").click(function () {
 
             $.post({
                 url : "<?php echo URL::action('IndexController@isLike')?>"
