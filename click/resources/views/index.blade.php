@@ -19,7 +19,7 @@
         <p class="am-article-meta">陈启佑（台湾）</p>
     </div>
     <div class="am-u-sm-8" id="like">
-        <span><?php echo $click; ?></span>
+        <div id="count">{{$click}}</div>
         <a href="#"><i class="fa-heart am-icon-btn"></i></a>
     </div>
 </header>
@@ -92,22 +92,21 @@
 
     $(function($) {
         var count = 0;
+
         var event = $("#like").click(function () {
 
             $.ajax({
                 url : "api/islike"
             }).success(function (data1) {
                 if(data1.status) {
-                    count++;
-                    $.ajax({
-                        data : count,
-                        url : "/api/getalldata",
-                        type : "post"
-                    }).success(function (data2) {
-                        console.log(data2.msg);
-                    });
+                    alert("点赞成功");
+//                    $("#count").innerText = '';
+                    $("#count").text('');
+                    $("#count").text(data1.count);
                 } else {
                     alert("Yummy" + data1.msg);
+                    $("#count").text('');
+                    $("#count").text(data1.count);
                 }
             });
         });

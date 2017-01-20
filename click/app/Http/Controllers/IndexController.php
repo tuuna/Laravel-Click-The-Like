@@ -10,29 +10,32 @@ class IndexController extends Controller
 {
     public function index() 
     {
-    	$allClick = Redis::get(" click : like ");
+    	$allClick = Redis::get("click");
 
         return view('index',['click' => $allClick]);
     }
 
-    public function getAllData()
+    /*public function getAllData()
     {
     	$data = Request::post();
 
     	if($data['count']) {
-    		$key = 'click : like';
+    		$key = 'click';
     		$allKey = Redis::get($key);
     		Redis::set($key,$allKey + 1);
     	}
-    }
+    }*/
 
     public function isLike()
     {
-        $click = Redis::get(" click : like ");
+        $click = Redis::get("click");
         if($click) {
-            return json_encode(['status' => 0,'msg' => '已经点过赞']);
+            Redis::set("click",0);
+            return ['status' => 0,'msg' => '取消点赞','count' => 0];
         } else {
-            return json_encode(['status' => 1,'msg' => '点赞成功']);
+            Redis::set("click",1);
+            return ['status' => 1,'msg' => '点赞成功','count' => 1];
+//            return json_encode(['status' => 1,'msg' => '点赞成功']);
         }
     }
 }
