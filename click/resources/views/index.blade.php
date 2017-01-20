@@ -94,14 +94,14 @@
         var count = 0;
         var event = $("#like").click(function () {
 
-            $.post({
-                url : "<?php echo URL::action('IndexController@isLike')?>"
+            $.ajax({
+                url : "api/islike"
             }).success(function (data1) {
                 if(data1.status) {
                     count++;
                     $.ajax({
                         data : count,
-                        url : "<?php echo URL::action('IndexController@getAllData'); ?>",
+                        url : "/api/getalldata",
                         type : "post"
                     }).success(function (data2) {
                         console.log(data2.msg);

@@ -18,6 +18,6 @@
 Route::get('/','IndexController@index');
 //Route::get('/isLike','IndexController@isLike');
 
-Route::get('/api/islike','IndexController@isLike');
+Route::any('/api/islike','IndexController@isLike');
 
-Route::get('/api/getalldata','IndexController@getAllData');
+Route::any('/api/getalldata','IndexController@getAllData');
