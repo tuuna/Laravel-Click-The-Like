@@ -13,3 +13,17 @@
 注意：因为只是一个简单的demo，这里并没有写相关的用户生成cookie来判断是否已点过赞而是直接通过查询来拿到的
 #### Ajax
 通过返回的json数据来拿到当前是否点赞
+
+### 部署方式
+
+- clone the repository
+
+```
+$ git clone https://github.com/vampirebitter/Laravel-Click-The-Like.git
+```
+
+- composer compoents
+
+```
+$ composer install
+```
