@@ -27,3 +27,5 @@ $ git clone https://github.com/vampirebitter/Laravel-Click-The-Like.git
 ```
 $ composer install
 ```
+
+注意这里webpack的方式是通过gulp实现
